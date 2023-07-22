@@ -28,5 +28,9 @@ contract MyToken {
     // burn function
 
 }
-
+Contract Details Public variables: myToken: A string variable that stores the token name. myShort: A string variable that stores the token abbreviation. total: A uint variable that tracks the total supply of tokens. Mapping variable: balance: A mapping that associates addresses with their token balances. Mint function: The mint function takes two parameters: _add (address) and _val (uint). It increases the total supply (total) by the specified _val amount. It increases the balance of the specified address (_add) by the specified _val amount. Burn function: The burn function takes two parameters: _add (address) and _val (uint). It first checks if the balance of the specified address (_add) is greater than or equal to the specified _val. If the condition is met, it deducts the specified _val from the total supply (total) and from the balance of the specified address.
 We have to complete the above function to deploy the transaction protol.
+
+Video Walkthrough
+
+https://www.loom.com/share/67eb147374c84bcf94ae9e99a1717a68
