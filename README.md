@@ -1,5 +1,7 @@
 # eth_proof_beginner
 
+MyToken contract
+
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
@@ -49,6 +51,73 @@ Mint function: The mint function takes two parameters: _add (address) and _val (
 Burn function: The burn function takes two parameters: _add (address) and _val (uint). It first checks if the balance of the specified address (_add) is greater than or equal to the specified _val. If the condition is met, it deducts the specified _val from the total supply (total) and from the balance of the specified address.
 
 We have to complete the above function to deploy the transaction protol.
+
+
+Executing program
+To execute this Solidity contract (i.e., "MyToken"), you need to deploy it on the Ethereum network. Here's a step-by-step guide:
+
+1. **Setting Up Your Development Environment**:
+   - Install [Node.js](https://nodejs.org/en/download/).
+   - Install Truffle using npm (Node Package Manager) by running:
+     ```
+     npm install -g truffle
+     ```
+
+2. **Starting a New Truffle Project**:
+   - Create a new directory for your project.
+   - Navigate to this directory using your terminal or command prompt and initiate a new Truffle project by running:
+     ```
+     truffle init
+     ```
+
+3. **Adding Your Contract**:
+   - Within the newly created project directory, you'll find a `/contracts` folder. Copy and paste your "MyToken" contract into a new file, say `MyToken.sol`.
+
+4. **Compiling the Contract**:
+   - Navigate to your project directory in the terminal.
+   - Compile the contract using:
+     ```
+     truffle compile
+     ```
+
+5. **Setting up Ganache (For Local Testing)**:
+   - Install [Ganache](https://www.trufflesuite.com/ganache), which is a personal Ethereum blockchain useful for testing purposes.
+   - Start Ganache.
+   - Create a new workspace or just use the default settings.
+
+6. **Migrate (Deploy) Your Contract**:
+   - Edit `truffle-config.js` in your Truffle project directory. Under `networks`, add configuration for Ganache (usually the default configuration is fine).
+   - Create a new file in the `/migrations` directory named `2_deploy_contract.js`. In this file, add:
+     ```javascript
+     const MyToken = artifacts.require("MyToken");
+
+     module.exports = function(deployer) {
+       deployer.deploy(MyToken);
+     };
+     ```
+   - In your terminal, run:
+     ```
+     truffle migrate --network development
+     ```
+
+7. **Interact with Your Contract**:
+   - Open the Truffle console:
+     ```
+     truffle console --network development
+     ```
+   - Interact with your deployed contract. Here's how you can mint some tokens:
+     ```javascript
+     let instance = await MyToken.deployed();
+     await instance.mint("<Your_Ethereum_Address>", 1000); // Replace <Your_Ethereum_Address> with your address from Ganache.
+     ```
+
+8. **Deploying to the Main Ethereum Network**:
+   - For deploying to the main network or any Ethereum testnets, you would typically use a service like [Infura](https://infura.io/) and a HD Wallet provider. This step is more involved and can incur costs, as you will have to pay gas fees.
+
+9. **Final Notes**:
+   - This simple token does not comply with the standard ERC20 interface. If you plan to make this token widely accepted or interact with other smart contracts/dapps, you'd want to use or extend a standard ERC20 interface.
+   - Always test your contracts extensively on testnets before deploying to the main network.
+
 
 Video Walkthrough
 
