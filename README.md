@@ -121,4 +121,4 @@ To execute this Solidity contract (i.e., "MyToken"), you need to deploy it on th
 
 Video Walkthrough
 
-https://www.loom.com/share/67eb147374c84bcf94ae9e99a1717a68
+https://www.loom.com/share/1afe0fa95e9640abaff28b47a702666c?sid=b6695608-9d83-4777-917a-b989f0f88d1c
